@@ -10,27 +10,53 @@
   <script type="text/javascript" src="/javascripts/app.js"></script>
 
 </head>
+
 <body>
-<h1>Artists</h1>
+  <h1>Artists</h1>
 
-<div ng-controller="TableController">
-  <table>
-    <tr ng-repeat="artist in Artists.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | orderBy:'first_name' ">
+  <div ng-controller="TableController">
+    <table class="table table-hover">
+      <tr>
+        <th id="firstName" ng-click="sort('first_name')">First Name</th>
+        <th id="lastName" ng-click="sort('last_name')">Last Name</th>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Location</th>
+        <th id="createdAt">Date Created</th>
+      </tr>
+      <tr ng-repeat="artist in Artists.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | orderBy: filter :reverse ">
 
+        <td>
+          <img src="http://www.bucketfeet.com/{{artist.profile_image_url}}" height="50px" width="50px" alt="" />
+        </td>
         <td>
           {{artist.first_name}}
         </td>
         <td>
           {{artist.last_name}}
         </td>
+        <td>
+          {{artist.artist_id}}
+        </td>
+        <td>
+          {{artist.email}}
+        </td>
+        <td>
+          {{artist.city}} {{artist.country}}
+        </td>
+        <td>
+          {{artist.created_at}}
+        </td>
 
 
-    </tr>
+
+      </tr>
     </table>
 
-  <uib-pagination boundary-links="true" items-per-page="itemsPerPage" max-size="maxSize" total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"></uib-pagination>
+    <uib-pagination id="pagination" boundary-links="true" items-per-page="itemsPerPage" max-size="maxSize" total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"></uib-pagination>
 
-</div>
+  </div>
 
 </body>
+
 </html>

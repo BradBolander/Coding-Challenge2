@@ -1,5 +1,7 @@
 var ang = angular.module('ArtistsApp', ['ui.bootstrap']);
 
+
+
 var Artists = (function() {
   var json = null;
   $.ajax({
@@ -19,8 +21,17 @@ var Artists = (function() {
 ang.controller('TableController', ['$scope', '$log', function($scope, $log) {
   $scope.totalItems = Artists.length;
   $scope.currentPage = 1;
+  $scope.reverse = true;
+  $scope.filter = '';
+  $scope.sort = function(filter) {
+    $scope.reverse = ($scope.filter === filter) ? !$scope.reverse : false;
+    $scope.filter = filter;
+    console.log(filter);
+    console.log($scope.reverse);
+  };
 
-  $scope.setPage = function (pageNo) {
+
+  $scope.setPage = function(pageNo) {
     $scope.currentPage = pageNo;
   };
 
