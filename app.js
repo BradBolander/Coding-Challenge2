@@ -38,7 +38,6 @@ app.use('/table', table);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
@@ -61,7 +60,6 @@ if (app.get('env') === 'development') {
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
   res.status(err.status || 500);
   res.render('error', {
     message: err.message,
