@@ -1,0 +1,36 @@
+<html ng-app="ArtistsApp">
+
+<head>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/javascripts/ui-bootstrap-tpls-0.14.1.min.js"></script>
+  <script type="text/javascript" src="/javascripts/app.js"></script>
+
+</head>
+<body>
+<h1>Artists</h1>
+
+<div ng-controller="TableController">
+  <table>
+    <tr ng-repeat="artist in Artists.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | orderBy:'first_name' ">
+
+        <td>
+          {{artist.first_name}}
+        </td>
+        <td>
+          {{artist.last_name}}
+        </td>
+
+
+    </tr>
+    </table>
+
+  <uib-pagination boundary-links="true" items-per-page="itemsPerPage" max-size="maxSize" total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"></uib-pagination>
+
+</div>
+
+</body>
+</html>
