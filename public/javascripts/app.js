@@ -1,6 +1,6 @@
 var ang = angular.module('ArtistsApp', ['ui.bootstrap']);
 
-// Loading data into Artists variable
+// Loading in data
 var Artists = (function() {
   var json = null;
   $.ajax({
@@ -52,7 +52,7 @@ ang.controller('StatisticsController', ['$scope', function($scope) {
   var ctx = document.getElementById("myChart").getContext("2d");
 
   var data = {
-    labels: ["1 Month", "2 Months", "March", "April", "May", "June", "July"],
+    labels: [],
     datasets: [{
       label: "Signups",
       fillColor: "rgba(255, 59, 59, 0.2)",
@@ -61,7 +61,7 @@ ang.controller('StatisticsController', ['$scope', function($scope) {
       pointStrokeColor: "#fff",
       pointHighlightFill: "#fff",
       pointHighlightStroke: "rgba(220,220,220,1)",
-      data: [65, 59, 80, 81, 56, 55, 4]
+      data: []
     }]
   };
 
@@ -95,10 +95,10 @@ ang.controller('StatisticsController', ['$scope', function($scope) {
 
   //Initial chart
   for (var i = 0; i < dayOfYear(); i++) {
-    if (i > dayOfYear() - 30){
+    if (i > dayOfYear() - 30) {
       var temp = getArtistsForDayOfYear(i);
       dataArray.push(temp);
-      dataLabels.push(i+1);
+      dataLabels.push(i + 1);
     };
   };
   data.datasets[0].data = dataArray;
@@ -113,8 +113,7 @@ ang.controller('StatisticsController', ['$scope', function($scope) {
 
     for (var i = 0; i < dayOfYear(); i++) {
 
-      if (i > dayOfYear() - 30)
-      {
+      if (i > dayOfYear() - 30) {
         var temp = getArtistsForDayOfYear(i);
         dataArray.push(temp);
         dataLabels.push(i + 1);
@@ -138,8 +137,7 @@ ang.controller('StatisticsController', ['$scope', function($scope) {
 
     for (var i = 0; i < dayOfYear(); i++) {
 
-      if (i > dayOfYear() - 60)
-      {
+      if (i > dayOfYear() - 60) {
         var temp = getArtistsForDayOfYear(i);
         dataArray.push(temp);
         dataLabels.push(i + 1);
@@ -163,8 +161,7 @@ ang.controller('StatisticsController', ['$scope', function($scope) {
 
     for (var i = 0; i < dayOfYear(); i++) {
 
-      if (i > dayOfYear() - 180)
-      {
+      if (i > dayOfYear() - 180) {
         var temp = getArtistsForDayOfYear(i);
         dataArray.push(temp);
         dataLabels.push(i + 1);
@@ -187,9 +184,9 @@ ang.controller('StatisticsController', ['$scope', function($scope) {
     myNewChart.destroy();
 
     for (var i = 0; i < dayOfYear(); i++) {
-        var temp = getArtistsForDayOfYear(i);
-        dataArray.push(temp);
-        dataLabels.push(i + 1);
+      var temp = getArtistsForDayOfYear(i);
+      dataArray.push(temp);
+      dataLabels.push(i + 1);
     };
 
     data.datasets[0].data = dataArray;
@@ -216,8 +213,6 @@ ang.controller('TableController', ['$scope', '$log', function($scope, $log) {
   $scope.sort = function(filter) {
     $scope.reverse = ($scope.filter === filter) ? !$scope.reverse : false;
     $scope.filter = filter;
-    console.log(filter);
-    console.log($scope.reverse);
   };
 
   $scope.imageHandler = function(image) {
@@ -240,7 +235,5 @@ ang.controller('TableController', ['$scope', '$log', function($scope, $log) {
   $scope.maxSize = 10;
   $scope.Artists = Artists;
   $scope.itemsPerPage = 50;
-  console.log($scope.Artists);
-
 
 }]);
