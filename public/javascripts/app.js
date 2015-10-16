@@ -238,8 +238,6 @@ ang.controller('TableController', ['$scope', '$log', function($scope, $log) {
   };
 
   $scope.maxSize = 10;
-  $scope.bigTotalItems = 175;
-  $scope.bigCurrentPage = 1;
   $scope.Artists = Artists;
   $scope.itemsPerPage = 50;
   console.log($scope.Artists);
