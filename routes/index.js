@@ -10,4 +10,8 @@ router.get('/table', function(req, res, next) {
   res.render('table', {title: 'Table' });
 });
 
+router.get('/statistics', function(req, res, next) {
+  res.render('statistics', {title: 'Statistics' });
+});
+
 module.exports = router;

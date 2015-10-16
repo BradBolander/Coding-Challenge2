@@ -1,0 +1,30 @@
+<html ng-app="ArtistsApp">
+
+<head>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/javascripts/ui-bootstrap-tpls-0.14.1.min.js"></script>
+  <script type="text/javascript" src="/javascripts/app.js"></script>
+  <script type="text/javascript" src="/javascripts/Chart.js"></script>
+</head>
+
+<body>
+  <div ng-controller="StatisticsController">
+    <h1> Statistics </h1>
+    <h3>{{totalItems}} Total Signups</h3>
+    <h3>{{thisMonth}} Signups This Month</h3>
+    <h3>{{lastMonth}} Signups Last Month</h3>
+    <input type="button" name="name" id="month1" value="1 Month">
+    <input type="button" name="name" id="month2" value="2 Months">
+    <input type="button" name="name" id="month6" value="6 Months">
+    <input type="button" name="name" id="year" value="Year">
+
+
+    <canvas id="myChart" width="900" height="400"></canvas>
+  </div>
+</body>
+
+</html>
