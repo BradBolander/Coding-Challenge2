@@ -27,7 +27,7 @@
       <tr ng-repeat="artist in Artists.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | orderBy: filter :reverse ">
 
         <td>
-          <img ng-src="{{imageHandler(artist.profile_image_url)}}" onerror="this.src='/images/galaxy.png'" height="50px" width="50px" alt="" />
+          <img ng-src="{{imageHandler(artist.profile_image_url)}}" onerror="this.src='/images/missing.png'" height="50px" width="50px" alt="" />
         </td>
         <td>
           {{artist.first_name}}
