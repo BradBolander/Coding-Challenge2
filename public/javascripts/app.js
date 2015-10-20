@@ -98,7 +98,7 @@ ang.controller('StatisticsController', ['$scope', function($scope) {
     if (i > dayOfYear() - 30) {
       var temp = getArtistsForDayOfYear(i);
       dataArray.push(temp);
-      dataLabels.push(i + 1);
+      dataLabels.push('');
     };
   };
   data.datasets[0].data = dataArray;
@@ -116,7 +116,7 @@ ang.controller('StatisticsController', ['$scope', function($scope) {
       if (i > dayOfYear() - 30) {
         var temp = getArtistsForDayOfYear(i);
         dataArray.push(temp);
-        dataLabels.push(i + 1);
+        dataLabels.push('');
       };
     };
 
@@ -140,7 +140,7 @@ ang.controller('StatisticsController', ['$scope', function($scope) {
       if (i > dayOfYear() - 60) {
         var temp = getArtistsForDayOfYear(i);
         dataArray.push(temp);
-        dataLabels.push(i + 1);
+        dataLabels.push('');
       };
     };
 
@@ -164,7 +164,7 @@ ang.controller('StatisticsController', ['$scope', function($scope) {
       if (i > dayOfYear() - 180) {
         var temp = getArtistsForDayOfYear(i);
         dataArray.push(temp);
-        dataLabels.push(i + 1);
+        dataLabels.push('');
       };
     };
 
@@ -186,7 +186,7 @@ ang.controller('StatisticsController', ['$scope', function($scope) {
     for (var i = 0; i < dayOfYear(); i++) {
       var temp = getArtistsForDayOfYear(i);
       dataArray.push(temp);
-      dataLabels.push(i + 1);
+      dataLabels.push('');
     };
 
     data.datasets[0].data = dataArray;
